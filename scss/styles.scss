@@ -1,0 +1,60 @@
+@import "normalize";
+
+$green: #468966;
+$yellow: #fff0a5;
+$orange: #ffb03b;
+$red: #b64926;
+
+$sat: 50;
+$light-blue: hsla(200, $sat, 50, .5);
+
+$string: " SCSS";
+$number: 1 * 3em;
+$bol: false;
+$list: one, two, three;
+
+$var: percentage(5/3);
+
+@function brighten($color, $alpha) {
+  @return hsla( hue($color), 75, lightness($color), $alpha);
+}
+
+h1 {
+  &:after {
+    content: $var;
+  }
+  color: darken($orange, 20%);
+  font: {
+    size: $number;
+    weight: bold;
+  }
+}
+
+h2 {
+  color: brighten($red, .5);
+}
+
+a {
+  text-decoration: none;
+}
+
+section {
+  article {
+    h2 { color: brighten($red, .5); }
+    p { color: brighten($green, .7); }
+    &#article-1 { background-color: lighten($yellow, 10%); }
+
+    &#article-2 {
+      a {
+        &:hover {
+          text-decoration: line-through;
+        }
+      }
+    }
+
+    body:hover &#article-2 {
+      background-color: brighten($orange, .1);
+    }
+
+  }
+}
