@@ -1,0 +1,8 @@
+@mixin heading-font($font-size: 1.2em) {
+  color: darken($orange, 20%);
+  font: {
+    family: $font-two;
+    size: $font-size;
+    weight: bold;
+  }
+}

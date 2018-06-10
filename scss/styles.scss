@@ -1,37 +1,27 @@
 @import "normalize";
-
-$green: #468966;
-$yellow: #fff0a5;
-$orange: #ffb03b;
-$red: #b64926;
-
-$sat: 50;
-$light-blue: hsla(200, $sat, 50, .5);
-
-$string: " SCSS";
-$number: 1 * 3em;
-$bol: false;
-$list: one, two, three;
-
-$var: percentage(5/3);
+@import "variables.scss";
+@import "mixins.scss";
 
 @function brighten($color, $alpha) {
   @return hsla( hue($color), 75, lightness($color), $alpha);
 }
 
+%corners {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
 h1 {
+  @include heading-font($number);
   &:after {
     content: $var;
-  }
-  color: darken($orange, 20%);
-  font: {
-    size: $number;
-    weight: bold;
   }
 }
 
 h2 {
-  color: brighten($red, .5);
+  @include heading-font;
+  color: brighten($red, .8);
 }
 
 a {
@@ -39,10 +29,24 @@ a {
 }
 
 section {
+  .link {
+    font-family: $font-two;
+    background: lighten($green, 10%);
+    display: block;
+    padding: 5px 10px;
+    margin: 10px 0;
+    @extend %corners;
+  }
+
   article {
+    background-color: lighten($yellow, 10%);
+    padding: 5px 10px;
+    margin: 10px;
+    @extend %corners;
+
     h2 { color: brighten($red, .5); }
     p { color: brighten($green, .7); }
-    &#article-1 { background-color: lighten($yellow, 10%); }
+    &#article-1 { font-family: $font-two; }
 
     &#article-2 {
       a {
@@ -52,9 +56,8 @@ section {
       }
     }
 
-    body:hover &#article-2 {
+    body &#article-2:hover {
       background-color: brighten($orange, .1);
     }
-
   }
 }
