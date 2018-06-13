@@ -21,7 +21,7 @@ h1 {
 
 h2 {
   @include heading-font;
-  color: brighten($red, .8);
+  color: $green;
 }
 
 a {
@@ -45,7 +45,7 @@ section {
     @extend %corners;
 
     h2 { color: brighten($red, .5); }
-    p { color: brighten($green, .7); }
+    p { @include contrast($yellow); }
     &#article-1 { font-family: $font-two; }
 
     &#article-2 {

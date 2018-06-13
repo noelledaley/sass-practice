@@ -225,7 +225,7 @@ h2 {
   font-family: "Consolas", monaco, monospace;
   font-size: 1.2em;
   font-weight: bold;
-  color: rgba(193, 68, 28, 0.8);
+  color: #468966;
 }
 
 a {
@@ -251,7 +251,7 @@ section article h2 {
 }
 
 section article p {
-  color: rgba(26, 181, 100, 0.7);
+  color: #468966;
 }
 
 section article#article-1 {

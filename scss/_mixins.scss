@@ -6,3 +6,14 @@
     weight: bold;
   }
 }
+
+@mixin contrast($background-color) {
+  @if $background-color == $yellow or $background-color == $red {
+    color: $green;
+  }
+  @else if lightness($background-color) < 50% {
+    color: $yellow;
+  } @else {
+    color: #333;
+  }
+}
